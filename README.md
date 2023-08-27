@@ -42,7 +42,7 @@ It's important to note that my information is accurate up until September 2021, 
 in the MQTT protocol since then.
 
 
-[mqtt-protocol3](https://github.com/faisal-porag/basic_mttq_example_with_golang/blob/master/photo_files/mqtt-protocol3.png)
+![mqtt-protocol3](https://github.com/faisal-porag/basic_mttq_example_with_golang/blob/master/photo_files/mqtt-protocol3.png)
 
 ---
 
