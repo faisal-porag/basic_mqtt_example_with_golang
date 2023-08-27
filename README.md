@@ -97,12 +97,9 @@ Eclipse Mosquitto is one of the most well-known and widely used MQTT brokers. It
 making it a popular choice for various IoT and messaging applications.
 
 ```shell
-docker pull eclipse-mosquitto
+ make docker_up 
 ```
 
-```shell
-docker run -d --name mqtt-broker -p 1883:1883 -p 9001:9001 eclipse-mosquitto
-```
 
 ---
 
