@@ -1,3 +1,13 @@
+/.env
+/.idea
+/bin
+
+.env
+
+/uploads
+
+./uploads
+
 # Gradle files
 .gradle/
 build/
