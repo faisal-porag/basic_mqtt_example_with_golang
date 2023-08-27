@@ -90,7 +90,21 @@ to ensure it's the right fit for your needs.
 
 ---
 
+> To set up an MQTT broker (such as Mosquitto) within a Docker container, you can follow these general steps:
 
+`Eclipse Mosquitto:` 
+Eclipse Mosquitto is one of the most well-known and widely used MQTT brokers. It's lightweight and open-source, 
+making it a popular choice for various IoT and messaging applications.
+
+```shell
+docker pull eclipse-mosquitto
+```
+
+```shell
+docker run -d --name mqtt-broker -p 1883:1883 -p 9001:9001 eclipse-mosquitto
+```
+
+---
 
 
 
