@@ -1,4 +1,4 @@
-#### Basic MTTQ example using Golang
+#### Basic MQTT example using Golang
 
 > MQTT stands for `"Message Queuing Telemetry Transport."` It's a lightweight and efficient messaging protocol designed 
 > for use in situations where bandwidth is limited or connectivity is unreliable, such as in remote or constrained 
@@ -42,11 +42,11 @@ It's important to note that my information is accurate up until September 2021, 
 in the MQTT protocol since then.
 
 
-![mqtt-protocol3](https://github.com/faisal-porag/basic_mttq_example_with_golang/blob/master/photo_files/mqtt-protocol3.png)
+![mqtt-protocol3](https://github.com/faisal-porag/basic_mqtt_example_with_golang/blob/master/photo_files/mqtt-protocol3.png)
 
 ---
 
-##### Some uses of MTTQ
+##### Some uses of MQTT
 
 - `Internet of Things (IoT) Applications:`
 MQTT is widely used in IoT applications to enable communication between devices, sensors, and central servers. 
