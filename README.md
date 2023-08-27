@@ -41,6 +41,9 @@ Overall, MQTT is widely adopted in various industries for its simplicity, effici
 It's important to note that my information is accurate up until September 2021, and there may have been developments or changes 
 in the MQTT protocol since then.
 
+
+[mqtt-protocol3](https://github.com/faisal-porag/basic_mttq_example_with_golang/blob/master/photo_files/mqtt-protocol3.png)
+
 ---
 
 ##### Some uses of MTTQ
