@@ -10,16 +10,8 @@ import (
 	"syscall"
 )
 
-// use free public MQTT broker: broker.emqx.io
-
-const (
-	brokerAddressServerSide = "tcp://broker.emqx.io:1883"
-	clientIDServerSide      = "location_server"
-	topicServerSide         = "rider_location"
-)
-
 func main() {
-	server := mqtt_client.NewServer(brokerAddressServerSide, clientIDServerSide, topicServerSide)
+	server := mqtt_client.NewServer(mqtt_client.BrokerAddress, mqtt_client.ClientID, mqtt_client.Topic)
 	if err := server.Connect(); err != nil {
 		log.Fatal(err)
 	}
@@ -32,7 +24,7 @@ func main() {
 		// Handle the message as needed (e.g., store in a database, process, etc.)
 	}
 
-	if err := server.Subscribe(topicServerSide, messageHandler); err != nil {
+	if err := server.Subscribe(mqtt_client.Topic, messageHandler); err != nil {
 		fmt.Println("Error subscribing:", err)
 		return
 	}

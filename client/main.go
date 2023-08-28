@@ -10,14 +10,8 @@ import (
 	"time"
 )
 
-const (
-	brokerAddress = "tcp://broker.emqx.io:1883"
-	clientID      = "rider_tracker"
-	topic         = "rider_location"
-)
-
 func main() {
-	client := mqtt_client.NewClient(brokerAddress, clientID)
+	client := mqtt_client.NewClient(mqtt_client.BrokerAddress, mqtt_client.ClientID)
 	if err := client.Connect(); err != nil {
 		panic(err)
 	}
@@ -31,7 +25,7 @@ func main() {
 			longitude := generateRandomLocation()
 
 			payload := fmt.Sprintf("{\"latitude\": %f, \"longitude\": %f}", latitude, longitude)
-			if err := client.Publish(topic, payload); err != nil {
+			if err := client.Publish(mqtt_client.Topic, payload); err != nil {
 				fmt.Println("Error publishing:", err)
 			}
 
