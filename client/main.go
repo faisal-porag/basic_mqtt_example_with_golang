@@ -29,6 +29,9 @@ func main() {
 				fmt.Println("Error publishing:", err)
 			}
 
+			fmt.Printf("payload: %v", payload)
+			fmt.Println("")
+
 			time.Sleep(10 * time.Second)
 		}
 	}()
