@@ -100,6 +100,7 @@ making it a popular choice for various IoT and messaging applications.
  make docker_up 
 ```
 
+> Use `broker.emqx.io` for free mqtt broker.
 
 ---
 
