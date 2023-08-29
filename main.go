@@ -20,12 +20,12 @@ func main() {
 	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
 
 	messageHandler := func(client MQTT.Client, msg MQTT.Message) {
-		fmt.Printf("Received message on topic %s: %s\n", msg.Topic(), msg.Payload())
+		fmt.Printf("received message on topic %s: %s\n", msg.Topic(), msg.Payload())
 		// Handle the message as needed (e.g., store in a database, process, etc.)
 	}
 
 	if err := server.Subscribe(mqtt_client.Topic, messageHandler); err != nil {
-		fmt.Println("Error subscribing:", err)
+		fmt.Println("error subscribing:", err)
 		return
 	}
 
