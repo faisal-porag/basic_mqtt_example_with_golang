@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	server := mqtt_client.NewServer(mqtt_client.BrokerAddress, mqtt_client.ClientID, mqtt_client.Topic)
+	server := mqtt_client.NewServer(mqtt_client.BrokerAddress, mqtt_client.ClientID)
 	if err := server.Connect(); err != nil {
 		log.Fatal(err)
 	}
@@ -30,4 +30,6 @@ func main() {
 	}
 
 	server.StartListening(c)
+
+	<-c
 }

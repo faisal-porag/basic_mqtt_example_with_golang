@@ -32,7 +32,7 @@ func (c *MQTTClient) Publish(topic string, payload string) error {
 	return token.Error()
 }
 
-func NewServer(brokerAddress, clientID, topic string) *MQTTClient {
+func NewServer(brokerAddress, clientID string) *MQTTClient {
 	opts := MQTT.NewClientOptions().AddBroker(brokerAddress)
 	opts.SetClientID(clientID)
 
