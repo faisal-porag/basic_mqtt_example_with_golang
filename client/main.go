@@ -12,7 +12,7 @@ import (
 
 func main() {
 	client := mqtt_client.NewClient(mqtt_client.BrokerAddress, mqtt_client.ClientID)
-	if err := client.Connect(); err != nil {
+	if err := client.ConnectClient(); err != nil {
 		panic(err)
 	}
 

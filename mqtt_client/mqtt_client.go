@@ -9,6 +9,10 @@ type MQTTClient struct {
 	mqttClient MQTT.Client
 }
 
+type MQTTServer struct {
+	mqttServer MQTT.Client
+}
+
 func NewClient(brokerAddress, clientID string) *MQTTClient {
 	opts := MQTT.NewClientOptions().AddBroker(brokerAddress)
 	opts.SetClientID(clientID)
@@ -20,36 +24,42 @@ func NewClient(brokerAddress, clientID string) *MQTTClient {
 	}
 }
 
-func (c *MQTTClient) Connect() error {
-	token := c.mqttClient.Connect()
+func (ct *MQTTClient) ConnectClient() error {
+	token := ct.mqttClient.Connect()
 	token.Wait()
 	return token.Error()
 }
 
-func (c *MQTTClient) Publish(topic string, payload string) error {
-	token := c.mqttClient.Publish(topic, 0, false, payload)
+func (ct *MQTTClient) Publish(topic string, payload string) error {
+	token := ct.mqttClient.Publish(topic, 0, false, payload)
 	token.Wait()
 	return token.Error()
 }
 
-func NewServer(brokerAddress, clientID string) *MQTTClient {
+func NewServer(brokerAddress, clientID string) *MQTTServer {
 	opts := MQTT.NewClientOptions().AddBroker(brokerAddress)
 	opts.SetClientID(clientID)
 
 	mqttClient := MQTT.NewClient(opts)
 
-	return &MQTTClient{
-		mqttClient: mqttClient,
+	return &MQTTServer{
+		mqttServer: mqttClient,
 	}
 }
 
-func (c *MQTTClient) Subscribe(topic string, messageHandler MQTT.MessageHandler) error {
-	token := c.mqttClient.Subscribe(topic, 0, messageHandler)
+func (s *MQTTServer) ConnectServer() error {
+	token := s.mqttServer.Connect()
 	token.Wait()
 	return token.Error()
 }
 
-func (c *MQTTClient) StartListening(ch chan os.Signal) {
+func (s *MQTTServer) Subscribe(topic string, messageHandler MQTT.MessageHandler) error {
+	token := s.mqttServer.Subscribe(topic, 0, messageHandler)
+	token.Wait()
+	return token.Error()
+}
+
+func (s *MQTTServer) StartListening(ch chan os.Signal) {
 	<-ch
-	c.mqttClient.Disconnect(250)
+	s.mqttServer.Disconnect(250)
 }
