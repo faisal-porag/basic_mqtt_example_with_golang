@@ -110,9 +110,13 @@ Yes, the `clientID` should be unique for each MQTT client that connects to the b
 The `clientID` is used by the broker to identify individual clients and manage their connections. Each client connecting 
 to the broker should have a distinct `clientID`.
 The client and server should have separate `clientID` values to ensure proper identification and handling of their 
-connections by the `MQTT` broker.
+connections by the MQTT broker.
 
-For that i am use different `clientID`
+
+***NOTE*** Both the client and the server should agree on the topic they are using. If you want to change the topic name, 
+you need to make sure that the client publishes to the new topic name, and the server subscribes to the same new topic name.
+
+For that, I am using different `clientID` values for my `client` & `server` in the example service.
 
 FOR CLIENT:
 ```shell
@@ -131,8 +135,8 @@ ClientID      = "server_rider_tracker"
 
 
 
-
-
+---
+THANKS
 
 
 
