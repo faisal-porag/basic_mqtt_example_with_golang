@@ -1,8 +1,9 @@
 package main
 
 import (
-	"basic_mqtt_example_with_golang/mqtt_client"
+	"basic_mqtt_example_with_golang/utils"
 	"fmt"
+	MQTT "github.com/eclipse/paho.mqtt.golang"
 	"math/rand"
 	"os"
 	"os/signal"
@@ -10,9 +11,36 @@ import (
 	"time"
 )
 
+type MQTTClient struct {
+	mqttClient MQTT.Client
+}
+
+func NewClient(brokerAddress, clientID string) *MQTTClient {
+	opts := MQTT.NewClientOptions().AddBroker(brokerAddress)
+	opts.SetClientID(clientID)
+
+	mqttClient := MQTT.NewClient(opts)
+
+	return &MQTTClient{
+		mqttClient: mqttClient,
+	}
+}
+
+func (ct *MQTTClient) ConnectTOClient() error {
+	token := ct.mqttClient.Connect()
+	token.Wait()
+	return token.Error()
+}
+
+func (ct *MQTTClient) Publish(topic string, payload string) error {
+	token := ct.mqttClient.Publish(topic, 0, false, payload)
+	token.Wait()
+	return token.Error()
+}
+
 func main() {
-	client := mqtt_client.NewClient(mqtt_client.BrokerAddress, mqtt_client.ClientID)
-	if err := client.ConnectClient(); err != nil {
+	client := NewClient(utils.BrokerAddress, utils.ClientID)
+	if err := client.ConnectTOClient(); err != nil {
 		panic(err)
 	}
 
@@ -25,12 +53,18 @@ func main() {
 			longitude := generateRandomLocation()
 
 			payload := fmt.Sprintf("{\"latitude\": %f, \"longitude\": %f}", latitude, longitude)
-			if err := client.Publish(mqtt_client.Topic, payload); err != nil {
-				fmt.Println("Error publishing:", err)
-			}
 
 			fmt.Printf("payload: %v", payload)
 			fmt.Println("")
+
+			err := client.Publish(utils.Topic, payload)
+			if err != nil {
+				fmt.Println("Error publishing:", err)
+			} else {
+				fmt.Println("Publish successful")
+			}
+
+			fmt.Println("==============================")
 
 			time.Sleep(10 * time.Second)
 		}

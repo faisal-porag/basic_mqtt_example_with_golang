@@ -1,39 +1,12 @@
-package mqtt_client
+package mqtt_server_client
 
 import (
 	MQTT "github.com/eclipse/paho.mqtt.golang"
 	"os"
 )
 
-type MQTTClient struct {
-	mqttClient MQTT.Client
-}
-
 type MQTTServer struct {
 	mqttServer MQTT.Client
-}
-
-func NewClient(brokerAddress, clientID string) *MQTTClient {
-	opts := MQTT.NewClientOptions().AddBroker(brokerAddress)
-	opts.SetClientID(clientID)
-
-	mqttClient := MQTT.NewClient(opts)
-
-	return &MQTTClient{
-		mqttClient: mqttClient,
-	}
-}
-
-func (ct *MQTTClient) ConnectClient() error {
-	token := ct.mqttClient.Connect()
-	token.Wait()
-	return token.Error()
-}
-
-func (ct *MQTTClient) Publish(topic string, payload string) error {
-	token := ct.mqttClient.Publish(topic, 0, false, payload)
-	token.Wait()
-	return token.Error()
 }
 
 func NewServer(brokerAddress, clientID string) *MQTTServer {

@@ -1,4 +1,4 @@
-package mqtt_client
+package utils
 
 // use free public MQTT broker: broker.emqx.io
 

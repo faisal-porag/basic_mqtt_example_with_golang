@@ -1,7 +1,8 @@
 package main
 
 import (
-	"basic_mqtt_example_with_golang/mqtt_client"
+	"basic_mqtt_example_with_golang/mqtt_server_client"
+	"basic_mqtt_example_with_golang/utils"
 	"fmt"
 	MQTT "github.com/eclipse/paho.mqtt.golang"
 	"log"
@@ -11,7 +12,7 @@ import (
 )
 
 func main() {
-	server := mqtt_client.NewServer(mqtt_client.BrokerAddress, mqtt_client.ClientID)
+	server := mqtt_server_client.NewServer(utils.BrokerAddress, utils.ClientID)
 	if err := server.ConnectServer(); err != nil {
 		log.Fatal(err)
 	}
@@ -24,7 +25,7 @@ func main() {
 		// Handle the message as needed (e.g., store in a database, process, etc.)
 	}
 
-	if err := server.Subscribe(mqtt_client.Topic, messageHandler); err != nil {
+	if err := server.Subscribe(utils.Topic, messageHandler); err != nil {
 		fmt.Println("error subscribing:", err)
 		return
 	}
