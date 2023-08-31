@@ -5,7 +5,7 @@
 > environments. MQTT is commonly used for Internet of Things (IoT) applications and other scenarios where devices need 
 > to communicate with each other or with a central server.
 
-Here are some key features of the MQTT protocol:
+Here are some key features of the `MQTT` protocol:
 
 - `Publish/Subscribe Model:` 
 MQTT follows a `publish/subscribe` messaging pattern. Clients can publish messages to specific 
@@ -89,6 +89,7 @@ to ensure it's the right fit for your needs.
 
 
 ---
+
 
 > To set up an MQTT broker (such as Mosquitto) within a Docker container, you can follow these general steps:
 
