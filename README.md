@@ -52,7 +52,7 @@ It's commonly used in IoT, home automation, remote monitoring, and other scenari
 with each other or with central systems.
 
 
-![mqtt-protocol3](https://github.com/faisal-porag/basic_mqtt_example_with_golang/blob/master/photo_files/mqtt-protocol3.png)
+![mqtt-protocol3](https://github.com/faisal-porag/basic_mqtt_example_with_golang/blob/master/photo_files/MQTT-architecture.jpg)
 
 ---
 
