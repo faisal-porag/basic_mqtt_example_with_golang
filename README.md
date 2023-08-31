@@ -7,6 +7,14 @@
 
 Here are some key features of the `MQTT` protocol:
 
+- `Efficiency:`
+MQTT is designed to be lightweight and efficient. It minimizes the overhead of the communication protocol, making it 
+suitable for low-bandwidth or high-latency networks.
+
+- `Low Bandwidth and Low Power:`
+MQTT's design makes it suitable for IoT (Internet of Things) devices that might have limited resources, battery 
+power, or bandwidth.
+
 - `Publish/Subscribe Model:` 
 MQTT follows a `publish/subscribe` messaging pattern. Clients can publish messages to specific 
 topics, and other clients can subscribe to those topics to receive the messages.
@@ -39,7 +47,9 @@ MQTT is designed to be lightweight and efficient, making it suitable for resourc
 
 Overall, MQTT is widely adopted in various industries for its simplicity, efficiency, and suitability for IoT applications.
 It's important to note that my information is accurate up until September 2021, and there may have been developments or changes 
-in the MQTT protocol since then.
+in the MQTT protocol since then. MQTT is favored for applications where efficient, reliable, and lightweight communication is necessary. 
+It's commonly used in IoT, home automation, remote monitoring, and other scenarios where devices need to communicate 
+with each other or with central systems.
 
 
 ![mqtt-protocol3](https://github.com/faisal-porag/basic_mqtt_example_with_golang/blob/master/photo_files/mqtt-protocol3.png)
