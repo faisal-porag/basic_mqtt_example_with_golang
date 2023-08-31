@@ -104,11 +104,27 @@ making it a popular choice for various IoT and messaging applications.
 
 ---
 
+> Is clientID is different for client and server ?
 
+Yes, the `clientID` should be unique for each MQTT client that connects to the broker, including both clients and servers.
+The `clientID` is used by the broker to identify individual clients and manage their connections. Each client connecting 
+to the broker should have a distinct `clientID`.
+The client and server should have separate `clientID` values to ensure proper identification and handling of their 
+connections by the `MQTT` broker.
 
+For that i am use different `clientID`
 
+FOR CLIENT:
+```shell
+ClientID      = "client_rider_tracker"
+```
 
+FOR SERVER:
+```shell
+ClientID      = "server_rider_tracker"
+```
 
+---
 
 
 

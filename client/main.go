@@ -52,7 +52,7 @@ func main() {
 			latitude := generateRandomLocation()
 			longitude := generateRandomLocation()
 
-			payload := fmt.Sprintf("{\"latitude\": %f, \"longitude\": %f}", latitude, longitude)
+			payload := fmt.Sprintf("{\"user\": \"Faisal\", \"latitude\": %f, \"longitude\": %f}", latitude, longitude)
 
 			fmt.Printf("payload: %v", payload)
 			fmt.Println("")

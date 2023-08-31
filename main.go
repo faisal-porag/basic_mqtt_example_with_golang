@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	server := mqtt_server_client.NewServer(utils.BrokerAddress, utils.ClientID)
+	server := mqtt_server_client.NewServer(utils.BrokerAddress, utils.ServerClientID)
 	if err := server.ConnectServer(); err != nil {
 		log.Fatal(err)
 	}
