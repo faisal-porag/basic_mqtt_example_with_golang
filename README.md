@@ -129,12 +129,12 @@ you need to make sure that the client publishes to the new topic name, and the s
 
 For that, I am using different `clientID` values for my `client` & `server` in the example service.
 
-FOR CLIENT:
+FOR CLIENT SIDE:
 ```shell
 ClientID      = "client_rider_tracker"
 ```
 
-FOR SERVER:
+FOR SERVER SIDE:
 ```shell
 ClientID      = "server_rider_tracker"
 ```
