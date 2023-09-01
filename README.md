@@ -142,7 +142,7 @@ ClientID      = "server_rider_tracker"
 ---
 
 
-
+[Resource](https://aws.amazon.com/what-is/mqtt/#:~:text=MQTT%20is%20a%20standards%2Dbased,constrained%20network%20with%20limited%20bandwidth.)
 
 
 
